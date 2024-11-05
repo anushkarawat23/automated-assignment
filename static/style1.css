@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 10;
+    padding: 10;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#email{
+    padding: 5px;
+}
+
+#email:hover{
+    background-color:#FFF5EE;
+    border-radius: 5px;
+}
+
+#internship_type{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="file"] {
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+
+
+#feedback {
+    margin-top: 20px;
+    color: #555;
+}
+
+  

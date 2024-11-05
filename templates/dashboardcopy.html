@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dash_style.css') }}">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Student Panel</h2>
+    <ul>
+        <li><a href="{{ url_for('student_dashboard') }}">Dashboard</a></li>
+        <li><a href="#">Assignment</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Change Password</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h2>New Assignment</h2>
+    <table>
+        <tr>
+            <th>S No.</th>
+            <th>Assignment Name</th>
+            <th>Date of Submission</th>
+            <th>Posting Date</th>
+            <th>Action</th>
+        </tr>
+        {% for assignment in assignments %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ assignment.assigned_by }}</td>
+            <td>{{ assignment.submission_date.strftime('%b %d, %Y') }}</td>
+            <td>{{ assignment.posting_date.strftime('%b %d, %Y, %I:%M %p') }}</td>
+            <td>
+                {% if assignment.status == 'SUBMITTED' %}
+                    Submitted
+                {% else %}
+                    <a href="{{ url_for('upload_assignment', assignment_id=assignment.id) }}">Pending</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

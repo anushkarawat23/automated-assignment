@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/admin_dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Add New Assignment</h2>
+        
+        <form method="POST" action="{{ url_for('admin_dashboard') }}" enctype="multipart/form-data">
+            <input type="text" name="assignment_topic" placeholder="Assignment Topic" required />
+            
+            <label for="role">Select Role:</label>
+            <select name="role" required>
+                <option value="BD">Business Development</option>
+                <option value="CA">Campus Ambassador</option>
+                <option value="CM">Community Manager</option>
+                <option value="CW">Copywriter</option>
+                <option value="EM">Event Manager</option>
+                <option value="EX">Executive Manager</option>
+                <option value="FA">Finance Analyst</option>
+                <option value="FSD">Full Stack Developer</option>
+                <option value="GD">Graphic Designer</option>
+                <option value="M">Marketing</option>
+                <option value="R">Research</option>
+                <option value="SDE">Software Development Engineer (SDE)</option>      
+            </select>
+
+            <label for="submission_date">Submission Date:</label>
+            <input type="date" name="submission_date" required />
+            <input type="file" name="file" accept=".pdf,.doc,.docx" required />
+            <button type="submit">Upload Question Paper</button>
+        </form>
+    </div>
+
+</body>
+</html>

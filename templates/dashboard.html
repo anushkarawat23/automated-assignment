@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dash_style.css') }}">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Automated Assignment Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                </ul> 
+            </nav>
+        </div>
+    </header>
+
+
+   
+
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Assignment</a>
+        <a href="#">Profile</a>
+        <a href="#">Change Password</a>
+        <a href="#">Logout</a>
+    </div>
+
+    <script>
+        function openSidebar() {
+        document.getElementById("sidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+    
+    function closeSidebar() {
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+    
+    </script>
+
+    <div id="main">
+        <button class="openbtn" onclick="openSidebar()">☰</button>  
+        <h2>Available Assignments</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S No.</th>
+                    <th>Assignment Name/Topic</th>
+                    <th>Role</th>
+                    <th>Date of Submission</th>
+                    <th>Posting Date</th>
+                    <th>View Assignment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, question in enumerate(questions, start=1) %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        <td>{{ question.assignment_topic }}</td>
+                        <td>{{ question.role }}</td>
+                        <td>{{ question.submission_date.strftime('%Y-%m-%d') }}</td>
+                        <td>{{ question.upload_date.strftime('%Y-%m-%d') }}</td>
+                        <td><a href="{{ url_for('static', filename=question.file_path) }}" target="_blank">View</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+
+ <!-- Footer Section -->
+ <footer>
+    <div class="footer-content">
+        <p>Contact Information:</p>
+        <p>TBI Center, Email: tbi@example.com | Phone: +123-456-7890</p>
+    </div>
+    <button id="scrollToTop" title="Go to top">&#8679;</button>
+</footer>
+
+<script>
+    // Scroll to top functionality
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+    scrollToTopBtn.addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>

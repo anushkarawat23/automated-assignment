@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Automated Assignment Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/student">STUDENT</a></li>
+                    <li><a href="/admin">ADMIN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Full-Page Image Section -->
+    <section class="full-image">
+        <img src="{{ url_for('static', filename='images2.webp') }}" alt="Welcome Image">
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>Contact Information:</p>
+            <p>TBI Center, Email: tbi@example.com | Phone: +123-456-7890</p>
+        </div>
+        <button id="scrollToTop" title="Go to top">&#8679;</button>
+    </footer>
+
+    <script>
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+        scrollToTopBtn.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
